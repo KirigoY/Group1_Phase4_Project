@@ -48,7 +48,7 @@ Create a Deployment Pipeline
 Infrastructure Setup
 Monitoring and Maintenance
 
-Data Description
+### Data Description
 The dataset used for this project was downloaded from a GitHub repository, which originally sourced the data from Zillow housing data. The dataset spans from April 1996 to April 2018 and provides detailed monthly home value data for a wide range of regions across the United States.
 
 The dataset has 14,723 rows and 272 columns. The information contained within the columns is as follows, as described by the data dictionary:
