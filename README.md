@@ -1,5 +1,6 @@
 # Forecasting Real Estate Prices: Identifying the Top 5 Zip Codes for Investment Using Time Series Analysis
 
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Zillow_home.png)
 ## BY GROUP 1 PHASE 4
 
 Zillow Home Value Index (ZHVI): A measure of the typical home value and market changes across a given region and housing type. It reflects the typical value for homes in the 35th to 65th percentile range. ZHVI is available both as a smoothed, seasonally adjusted measure and as a raw measure.
