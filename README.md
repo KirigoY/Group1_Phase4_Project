@@ -63,19 +63,54 @@ The dataset has 14,723 rows and 272 columns. The information contained within th
 `SizeRank` The size rank of the region, with 1 being the largest in terms of population or housing market.\
 `Monthly Home Values`: The columns labeled with dates (e.g., "1996-04", "1996-05", etc.) represent the Zillow Home Value Index for that region in those specific months. These values are typically the median home values and are given in dollars. This ranges from April 1996 to April 2018.
 
+## Explorative Data Analysis
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Distribution%20of%20real%20estate%20prices.png)
+The histogram is heavily right-skewed (positively skewed). This means that most of the real estate prices are clustered towards the lower end of the price spectrum, with a long tail extending towards higher prices. There are a few outliers with very high prices, which are responsible for the long tail on the right side of the histogram. The majority of the real estate prices are concentrated at the lower end, indicating that lower-priced properties are more common in the dataset.
+### Univariate
+#### Top 20 most frequent cities in the dataset
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Top%2020%20Cities%20by%20frequency.png)
+This plot shows the top 20 most frequent cities in the dataset.
+#### Top 20 Metros by frequency
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Top%2020%20Metros%20by%20Frequency.png)
+This plot shows the top 20 most frequent metro areas in the dataset.
+#### Distribution of Annualized ROI
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Distribution%20of%20Annualized%20ROI.png)
+Most investments seem to yield an annualized ROI of around 4%, indicating a potentially good profit margin for the majority of real estate investments.
+### Bivariate
+#### Annualized ROI by Region Name/Zipcodes
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Annualized%20ROI%20by%20RegionName%20%3A%20Zipcodes.png)
+KEY\
+11211 (New York, Kings)\
+11222 (New York, Kings)\
+11216 (New York, Kings)\
+07302 (Jersey City, Hudson)\
+11215 (New York, Kings)\
+Annualized ROI: This zip codes have the top 5 highest return on investment, making it the most attractive for real estate investment in terms of profitability.
+
+#### Top 20 Counties by average price
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Top%2020%20Counties%20by%20Average%20Price.png)
+#### Average price over time
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Average%20Price%20Over%20Time.png)
+#### Correlation between Price and SizeRank
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/correlation%20between%20SizeRank%20and%20Price.png)
+### Multivariate analysis
+#### Scatter Plot of Price by State and Metro with CountyName as Hue
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Price%20by%20State%20and%20Metro%20with%20CountyName%20as%20Hue.png)
+#### Scatter Plot of Price by SizeRank with State as Hue and Metro as Style
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Scatter%20Plot%20of%20Price%20by%20SizeRank%20with%20State%20as%20Hue%20and%20Metro%20as%20Style.png)
 ## STATIONARITY TESTING
 ### Principal Component Analysis (PCA)
 PC1 explains approximately 56.14% of the total variance.
 PC2 explains approximately 43.86% of the total variance.
 
-image(PCA)
+![image]([PCA](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/PCA.png))
 ### Clustering
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/K-means-Clustering-on-PCA-transformed-Data.png)
 Cluster 0: Contains 1,833,613 data points. Cluster 1: Contains 1,765,222 data points. Cluster 2: Contains 149,205 data points. 
 Interpretation: Cluster Distribution: The clustering has resulted in three distinct clusters labeled as Cluster 0, Cluster 1, and Cluster 2.
 
-Image(Clustering)
-
 ### AD-Fuller Test
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/AD-fuller.png)
 ZIP Code 1: Original Data: ADF Statistic: 1.9884 p-value: 0.9987 (Non-stationary) Log and Differenced Data: ADF Statistic: -2.8492 p-value: 0.0516 (Stationary at 5% significance level)
 
 ZIP Code 2: Original Data: ADF Statistic: 1.0244 p-value: 0.9945 (Non-stationary) Log and Differenced Data: ADF Statistic: -2.7422 p-value: 0.0670 (Stationary at 10% significance level)
@@ -95,8 +130,8 @@ ZIP Code 1 and ZIP Code 5 show evidence of stationarity after logarithmic transf
 ## MODELLING
 ### ARIMA MODEL
 
-Image(ARIMA)
-
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Arima%201.png)
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Arima%202.png)
 Interpretation:
 
 Model Coefficients: AR(1) and MA(1) coefficients are statistically significant (p < 0.05) across all ZIP codes, indicating they contribute significantly to the model.
@@ -108,6 +143,8 @@ The MAE, MSE, and RMSE provide measures of prediction accuracy, with lower value
 These summaries suggest that the ARIMA(1, 1, 1) models fitted to the log-transformed and differenced data provide reasonable fits for predicting housing prices in each ZIP code. Further analysis could involve diagnostic checks for residuals and potentially exploring other model variations to optimize forecasting accuracy further.
 
 ### SARIMAX
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Sarimax%204.png)
+![Image](https://github.com/KirigoY/Group1_Phase4_Project/blob/master/Images/Sarimax%205.png)
 All models have statistically significant coefficients (low p-values).
 
 Zip3 and Zip4 have the highest Log Likelihood values, suggesting they might be the best-fitting models among the five.
